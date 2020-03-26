@@ -56,8 +56,7 @@ function auth(req, res, next) {
 
   if (!req.user) {
     const err=new Error('You are not authenticated!');
-    res.setHeader('WWW-Authenticate', 'Basic');
-    err.status=403;
+    err.status=401;
     return next(err);
   } else {
     return next();
